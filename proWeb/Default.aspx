@@ -19,6 +19,7 @@
             <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
             <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
             <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
         </div>
         
         <br />

@@ -1,35 +1,39 @@
-﻿using library; // ESTA LÍNEA ES LA QUE QUITA EL ROJO DE ENProduct Y ENCategory
+﻿using library;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
-using System.Xml.Linq;
 
 namespace proWeb
 {
     public partial class _Default : Page
     {
-        // Se ejecuta cada vez que se carga la página
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                LoadCategories(); // Solo cargamos el desplegable la primera vez
+                LoadCategories();
             }
         }
 
-        // Método para rellenar el DropDownList de categorías
         private void LoadCategories()
         {
             ENCategory cat = new ENCategory();
             ddlCategory.DataSource = cat.ReadAll();
-            ddlCategory.DataTextField = "Name"; // Lo que el usuario lee
-            ddlCategory.DataValueField = "Id";   // El número que se guarda en BD
+            ddlCategory.DataTextField = "Name";
+            ddlCategory.DataValueField = "Id";
             ddlCategory.DataBind();
         }
 
         // --- BOTÓN CREATE ---
         protected void btnCreate_Click(object sender, EventArgs e)
         {
+            // Validamos que no haya campos vacíos (Esto será parte de tu commit 6)
+            if (string.IsNullOrWhiteSpace(txtCode.Text) || string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                lblMessage.Text = "Error: Código y Nombre son obligatorios.";
+                return;
+            }
+
             try
             {
                 ENProduct en = new ENProduct(txtCode.Text, txtName.Text,
@@ -78,6 +82,13 @@ namespace proWeb
             else lblMessage.Text = "Error al borrar.";
         }
 
+        // --- BOTÓN CLEAR ---
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            lblMessage.Text = "Campos limpios.";
+        }
+
         // --- BOTONES DE NAVEGACIÓN ---
         protected void btnReadFirst_Click(object sender, EventArgs e)
         {
@@ -102,7 +113,6 @@ namespace proWeb
             else lblMessage.Text = "Este es el primer producto.";
         }
 
-        // Función auxiliar para rellenar los TextBox
         private void FillFields(ENProduct en)
         {
             txtCode.Text = en.Code;
@@ -113,7 +123,6 @@ namespace proWeb
             txtDate.Text = en.CreationDate.ToString();
         }
 
-        // Función auxiliar para limpiar los TextBox
         private void ClearFields()
         {
             txtCode.Text = txtName.Text = txtAmount.Text = txtPrice.Text = txtDate.Text = "";
