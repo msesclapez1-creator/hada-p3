@@ -2,14 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>Products management</h2>
     <div style="margin-top: 20px;">
-        <p>Código: <asp:TextBox ID="txtCode" runat="server"></asp:TextBox></p>
-        <p>Nombre: <asp:TextBox ID="txtName" runat="server"></asp:TextBox></p>
-        <p>Cantidad: <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox></p>
-        <p>Precio: <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox></p>
-        <p>Fecha: <asp:TextBox ID="txtDate" runat="server"></asp:TextBox></p>
+        <p>Code: <asp:TextBox ID="txtCode" runat="server"></asp:TextBox></p>
+        <p>Name: <asp:TextBox ID="txtName" runat="server"></asp:TextBox></p>
+        <p>Amount: <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox></p>
+        <p>Category: <asp:DropDownList ID="ddlCategory" runat="server"></asp:DropDownList></p>
+        <p>Price: <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox></p>
+        <p>Creation Date: <asp:TextBox ID="txtDate" runat="server"></asp:TextBox></p>
         
-        <p>Categoría: <asp:DropDownList ID="ddlCategory" runat="server"></asp:DropDownList></p>
+        
 
         <div style="margin-top: 20px;">
             <asp:Button ID="btnRead" runat="server" Text="Read" OnClick="btnRead_Click" />
