@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="proWeb.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <h1>HADA P3 - CURSO 2025/26</h1>
+            <h2>Nombre: Victor Tejera - DNI: 48769166N</h2>
+            <h2>Nombre: Manuel Sánchez - DNI: 48775002Y</h2>
+            <hr />
+            
+            <asp:ContentPlaceHolder id="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
